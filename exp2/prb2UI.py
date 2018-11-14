@@ -25,7 +25,7 @@ class MAT(QDialog):
         self.info = self.mat.draw(self.size)
         self.setWindowTitle("走格子")
         self.timer.start(100, self)
-        self.stepsignal.connect(self.doAction)
+        #self.stepsignal.connect(self.doAction)
         # self.show()
 
     def timerEvent(self, QTimerEvent):
@@ -33,7 +33,8 @@ class MAT(QDialog):
             self.timer.stop()
 
         self.step += 1
-        self.stepsignal.emit()
+        self.update()
+
 
     def paintEvent(self, QPaintEvent):
         qp = QPainter()
@@ -48,8 +49,8 @@ class MAT(QDialog):
 
 
 class UI2(QWidget):
-    mx = 5
-    my = 5
+    mx = 8
+    my = 8
     size = 5
 
     def __init__(self):
@@ -61,12 +62,12 @@ class UI2(QWidget):
         self.setWindowTitle("走格子")
         lbX = QLabel(self)
         lbX.setText("棋盘大小 X轴")
-        inX = QLineEdit("5", self)
+        inX = QLineEdit("8", self)
         inX.textChanged[str].connect(self.onChangeX)
 
         lbY = QLabel(self)
         lbY.setText("棋盘大小 Y轴")
-        inY = QLineEdit("5", self)
+        inY = QLineEdit("8", self)
         inY.textChanged[str].connect(self.onChangeY)
 
         self.btne = QPushButton('退出程序', self)
