@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="zh_cn">
+<head>
+    <meta charset="UTF-8">
+    {% load static %}
+    <link rel="stylesheet" href="{% static '/public_css/bootstrap.min.css' %}">
+    {% block private_css %}
+    {% endblock %}
+    <title>{% block title %}Title{% endblock %}</title>
+</head>
+<body>
+<div>
+    <a class="btn-secondary" href="{% url 'hotel:index' %}">首页</a>
+    {% block private_work %}
+
+    {% endblock %}
+</div>
+</body>
+<script src="{% static '/public_js/jquery.slim.min.js' %}"></script>
+<script src="{% static '/public_js/popper.min.js' %}"></script>
+<script src="{% static '/public_js/bootstrap.min.js' %}"></script>
+</html>

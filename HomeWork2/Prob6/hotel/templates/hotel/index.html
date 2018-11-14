@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %}酒店管理系统{% endblock %}
+
+{% load static %}
+
+{% block private_work %}
+    <div class="container text-center" style="margin-top: 100px">
+        <h1>欢迎使用此酒店管理系统</h1>
+        <div class="row" style="margin-top: 50px">
+            <div class="col-4">
+                <a class="btn btn-success btn-lg" href="{% url 'hotel:register' %}">旅客登记</a>
+            </div>
+            <div class="col-4">
+                <a class="btn btn-info btn-lg" href="{% url 'hotel:leave' %}">旅客离开</a>
+            </div>
+            <div class="col-4">
+                <a class="btn btn-primary btn-lg" href="{% url 'hotel:manage' %}">房间管理</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}

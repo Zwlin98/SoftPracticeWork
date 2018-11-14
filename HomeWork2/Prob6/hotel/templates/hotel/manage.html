@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}房间信息管理{% endblock %}
+
+{% block private_work %}
+    <div class="container " style="margin-top: 80px">
+        <div class="text-center">
+            <h2>房间信息管理</h2>
+            <p class="lead">当前房间入住情况</p>
+        </div>
+        <div style="width: 1000px;margin: 0 auto">
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th scope="col">客人姓名</th>
+                    <th scope="col">客人性别</th>
+                    <th scope="col">手机号</th>
+                    <th scope="col">客人证件号</th>
+                    <th scope="col">房间类型</th>
+                    <th scope="col">入住时间</th>
+                    <th scope="col">入住时长</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for customer in customerInfo %}
+                    <tr>
+                        <th>{{ customer.customerName }}</th>
+                        <td>{{ customer.customerGender }}</td>
+                        <td>{{ customer.customerPhoneNumber }}</td>
+                        <td>{{ customer.customerId }}</td>
+                        <td>{{ customer.roomType }}</td>
+                        <td>{{ customer.customerCheckInTime }}</td>
+                        <td>{{ customer.customerStayTime }}天</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}
